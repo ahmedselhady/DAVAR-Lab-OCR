@@ -8,7 +8,8 @@ PIP=${PIP:-"pip"}
 # Requires torch>= 1.3.0 torchvision >= 0.4.1
 
 # Dependencies from mmcv and mmdetection
-$PIP install addict cython numpy albumentations==0.3.2 imagecorruptions matplotlib Pillow==6.2.2 six terminaltables pytest pytest-cov pytest-runner mmlvis scipy sklearn mmpycocotools yapf
+$PIP install cython==0.29.33
+$PIP install addict numpy albumentations==0.3.2 imagecorruptions matplotlib Pillow==6.2.2 six terminaltables pytest pytest-cov pytest-runner mmlvis scipy scikit-learn mmpycocotools yapf
 
 # Dependencies of DavarOCR
 $PIP install nltk lmdb editdistance opencv-python requests onnx SharedArray tqdm pyclipper imgaug==0.3.0 Shapely Polygon3 scikit-image prettytable transformers seqeval Levenshtein networkx bs4 distance apted lxml jsonlines
@@ -23,12 +24,12 @@ $PIP install mmdet==2.11.0
 $PYTHON setup.py develop
 
 ###### Compile dependencies ######
-g++ -shared -o ./davarocr/davar_det/datasets/pipelines/lib/tp_data.so -fPIC ./davarocr/davar_det/datasets/pipelines/lib/tp_data.cpp `pkg-config --cflags --libs opencv`
-g++ -shared -o ./davarocr/davar_det/datasets/pipelines/lib/east_data.so -fPIC ./davarocr/davar_det/datasets/pipelines/lib/east_data.cpp `pkg-config --cflags --libs opencv`
-g++ -shared -o ./davarocr/davar_det/core/post_processing/lib/tp_points_generate.so -fPIC ./davarocr/davar_det/core/post_processing/lib/tp_points_generate.cpp `pkg-config --cflags --libs opencv`
-g++ -shared -o ./davarocr/davar_det/core/post_processing/lib/east_postprocess.so -fPIC ./davarocr/davar_det/core/post_processing/lib/east_postprocess.cpp `pkg-config --cflags --libs opencv`
-g++ -shared -o ./davarocr/davar_spotting/core/post_processing/lib/bfs_search.so -fPIC ./davarocr/davar_spotting/core/post_processing/lib/bfs_search.cpp `pkg-config --cflags --libs opencv`
-g++ -shared -o ./davarocr/davar_table/datasets/pipelines/lib/gpma_data.so -fPIC ./davarocr/davar_table/datasets/pipelines/lib/gpma_data.cpp `pkg-config --cflags --libs opencv`
+g++ -shared -o ./davarocr/davar_det/datasets/pipelines/lib/tp_data.so -fPIC ./davarocr/davar_det/datasets/pipelines/lib/tp_data.cpp `pkg-config --cflags --libs opencv4`
+g++ -shared -o ./davarocr/davar_det/datasets/pipelines/lib/east_data.so -fPIC ./davarocr/davar_det/datasets/pipelines/lib/east_data.cpp `pkg-config --cflags --libs opencv4`
+g++ -shared -o ./davarocr/davar_det/core/post_processing/lib/tp_points_generate.so -fPIC ./davarocr/davar_det/core/post_processing/lib/tp_points_generate.cpp `pkg-config --cflags --libs opencv4`
+g++ -shared -o ./davarocr/davar_det/core/post_processing/lib/east_postprocess.so -fPIC ./davarocr/davar_det/core/post_processing/lib/east_postprocess.cpp `pkg-config --cflags --libs opencv4`
+g++ -shared -o ./davarocr/davar_spotting/core/post_processing/lib/bfs_search.so -fPIC ./davarocr/davar_spotting/core/post_processing/lib/bfs_search.cpp `pkg-config --cflags --libs opencv4`
+g++ -shared -o ./davarocr/davar_table/datasets/pipelines/lib/gpma_data.so -fPIC ./davarocr/davar_table/datasets/pipelines/lib/gpma_data.cpp `pkg-config --cflags --libs opencv4`
 
 
 
